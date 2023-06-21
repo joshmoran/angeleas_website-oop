@@ -1,9 +1,8 @@
 {
-    "name": "angelas_website/oop",
-    "type": "project",
+    "name": "josh/angeleas_website-oop",
     "autoload": {
         "psr-4": {
-            "AW\\": "source/"
+            "AW\\": "src/"
         }
     },
     "authors": [

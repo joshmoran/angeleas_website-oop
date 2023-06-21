@@ -5,7 +5,7 @@ require(__DIR__ . "/vendor/autoload.php");
 use AW\database;
 use AW\user;
 
-$db = new AW\database();
+$db = new AW\database(true);
 
 try {
     echo $db;
