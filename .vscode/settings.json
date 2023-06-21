@@ -1,0 +1,18 @@
+{
+    "cSpell.words": [
+        "cardexpiry",
+        "cardnumber",
+        "firstname",
+        "lastname"
+    ],
+    "tabnine.useProxySupport": false,
+    "workbench.list.multiSelectModifier": "alt",
+    "editor.inlineSuggest.showToolbar": "always",
+    "editor.inlineSuggest.suppressSuggestions": true,
+    "editor.snippetSuggestions": "top",
+    "editor.suggest.insertMode": "replace",
+    "editor.suggest.preview": true,
+    "cSpell.enableFiletypes": [
+        "perl"
+    ]
+}
