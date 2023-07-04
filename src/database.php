@@ -55,7 +55,7 @@ class database
 
 	// }
 
-	// function db_insert ( ) {
+	function db_insert ( ) {
 
 	// }
 

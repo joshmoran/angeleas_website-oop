@@ -18,8 +18,7 @@ class user extends database {
 		
 		if (  ) {
 			$_SESSION
-		
-		
+		}
 	}
 	
 	
