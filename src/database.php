@@ -6,21 +6,18 @@ use mysqli;
 
 class database
 {
-	private $db_connect;
+	private $db_connect = '';
 
 	function __construct($root = false)
 	{
+		$root = '';
 		if ($root) {
 			$root = '/';
 		} else {
 			$root = '../';
 		}
 
-		include(__DIR__ . '/../config/database.php');
-		print_R(
-			include(__DIR__ . '/../config/database.php')
-		);
-		echo 'yes';
+		require __DIR__ . '/../config/database.php';
 
 		$this->db_connect = new mysqli($hostname, $username, $password, $database, $port);
 	}
@@ -39,20 +36,20 @@ class database
 
 	// }
 
-	// function db_get_row ( $sql ) {
-	// 	$result = '';
+	function db_get_row($sql)
+	{
+		$result = '';
 
-	// 	if ( $sql != '' ) {
-	// 		try {
-	// 			$result = $this->db_connection->query( $sql ));
-	// 		} catch {
-	// 			die( $this->db_connection->error );
-	// 		}
-	// 	}
+		if ($sql != '') {
+			try {
+				$result = $this->db_connect->query($sql);
+			} catch ( $e) {
+				die($this->db_connect->error);
+			}
+		}
 
-	// 	return $result;
-
-	// }
+		return $result;
+	}
 
 	// function db_execute ( $sql ) {
 
