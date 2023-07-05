@@ -22,47 +22,46 @@ class database
 		$this->db_connect = new mysqli($hostname, $username, $password, $database, $port);
 	}
 
-	// function db_get_array ( $sql ) {
-	// 	$result = '';
+	function db_get_assoc($sql)
+	{
+		$result = '';
 
-	// 	if ( $sql != '' ) {
-	// 		try {
+		if ($sql != '') {
+			$query = $this->db_connect->query($sql) or die($this->db_connect->error);
+			$result = $query->fetch_assoc();
+		}
 
-	// 		} catch {
-	// 			die( $this8
-	// 		}
-
-	// 	}
-
-	// }
+		return $result;
+	}
 
 	function db_get_row($sql)
 	{
 		$result = '';
 
 		if ($sql != '') {
-			try {
-				$result = $this->db_connect->query($sql);
-			} catch ( $e) {
-				die($this->db_connect->error);
-			}
+			$query = $this->db_connect->query($sql) or die($this->db_connect->error);
+			$result = $query->fetch_row();
 		}
 
 		return $result;
 	}
 
-	function db_update ( $sql ) {
-
+	function db_update($sql)
+	{
 	}
 
-	function db_insert ( ) {
-
+	function db_insert($table, $fields, $where)
+	{
 	}
 
-	function db_num_rows ($sql) {
+	function db_num_rows($sql)
+	{
+		$result = 0;
+		if ($sql != '' || $sql != null) {
+			$query = $this->db_connect->query($sql) or die($this->db_connect->error);
+			$result = $query->num_rows;
+		}
 
-		if ($sql != '' || $sql!= null) {
-			if ( $db->)
-
+		return $result;
 	}
 }

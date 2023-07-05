@@ -10,9 +10,12 @@ class user extends database {
 	
 	private $sqlAccount = 'SELECT * FROM accounts ';
 	private $sqlCustomer = 'SELECT * FROM customers '; 
+
+	private	$address = array();
+	private $orders = array();
 	
 	function __CONSTRUCT ( $customer_id, $admin = false ) {
-		$sqlAccount .= " WHERE customer_id = '" . $customer_id . "'";
+		$sql = $this->sqlAccount .= " WHERE customer_id = '" . $customer_id . "'";
 		
 		$query = parent::getOneRow();
 		
