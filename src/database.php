@@ -51,15 +51,18 @@ class database
 		return $result;
 	}
 
-	// function db_execute ( $sql ) {
+	function db_update ( $sql ) {
 
-	// }
+	}
 
 	function db_insert ( ) {
 
-	// }
+	}
 
-	// function db_num_rows () {
+	function db_num_rows ($sql) {
 
-	// }
+		if ($sql != '' || $sql!= null) {
+			if ( $db->)
+
+	}
 }

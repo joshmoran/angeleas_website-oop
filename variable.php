@@ -10,3 +10,4 @@ $render = new render($variabe);
 get_class_methods($render);
 
 echo 'test';
+echo $render->showSome();
