@@ -11,8 +11,12 @@ class user extends database {
 	private $sqlAccount = 'SELECT * FROM accounts ';
 	private $sqlCustomer = 'SELECT * FROM customers '; 
 
-	private	$address = array();
-	private $orders = array();
+
+	private $firstName = '';
+	private $lastName = '';
+	private $email = '';
+	private $mobileNo = 0;
+	private $homeNo = 0;
 	
 	function __CONSTRUCT ( $customer_id, $admin = false ) {
 		$sql = $this->sqlAccount .= " WHERE customer_id = '" . $customer_id . "'";
