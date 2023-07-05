@@ -2,7 +2,7 @@
 
 namespace AW;
 
-class user extends database {
+class customer extends database {
 	private $basket_id;
 	private $customer_id;
 	
@@ -19,13 +19,30 @@ class user extends database {
 	private $homeNo = 0;
 	
 	function __CONSTRUCT ( $customer_id, $admin = false ) {
+		$where = " WHERE customer_id = '" . $customer_id . "'";
+		$sql = array(
+			'account' => $this->sqlAccount . $where,
+			'customer' => $this->sqlCustomer. $where
+		);
+
 		$sql = $this->sqlAccount .= " WHERE customer_id = '" . $customer_id . "'";
 		
-		$query = parent::getOneRow();
-		
-		if (  ) {
-			$_SESSION
-		}
+		for ($a = 0; )
+			$query = parent::db_get_row($sql[$a]);
+			
+			if ( $query != null ) {
+				try {
+					if ($sql[$a] == 'account') {
+
+					} else if ( $sql[$a] == 'customer'){
+
+					} else {
+						die($this-)
+					}
+
+
+				$this->
+			}
 	}
 	
 	
