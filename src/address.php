@@ -5,23 +5,15 @@ namespace AW;
 class address extends customer
 {
     private $addresses = array();
+    private $sql = "SELECT * FROM address";
 
     public function __construct()
     {
-        parent::__construct(null);
-    }
+        $sql = $this->sql . ' WHERE customer_id = ' . $customer_id;
 
+        $query = parent::db_get_row()
 
-    // GETTERS
-    public function getAddresses()
-    {
-        return $this->addresses;
-    }
-
-    // SETTERS
-    public function setAddresses($object)
-    {
-        foreach ($object as $$value) {
+        foreach ($object as $value) {
             $this->addresses[] = array(
                 'id' => $value['id'],
                 '1_line' => $value['1_line'],
@@ -32,4 +24,12 @@ class address extends customer
             );
         }
     }
+
+
+    // GETTERS
+    public function getAddresses()
+    {
+        return $this->addresses;
+    }
+
 }
