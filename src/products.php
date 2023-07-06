@@ -8,15 +8,21 @@ class products extends database
 
     function getAllProducts($filter = null)
     {
-        $result  = '';
+        $result  = array();;
         if ($filter != null) {
             $sqlProducts = $this->sql . ' WHERE id = ' . $filter;
         } else {
             $sqlProducts = $this->sql;
         }
 
-        $query = parent::db_get_assoc($sqlProducts);
-        
-        return $query;
+        if ($sqlProducts != '')
+            $query = parent::db_connect->query($sqlProducts);
+        if ($query->num_rows > 0) {
+            $row = $query->fetch_assoc();
+            do {
+                $result[] = $row;
+            } while ($row = $query->fetch_assoc());
+        }
+        return $result;
     }
 }

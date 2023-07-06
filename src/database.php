@@ -24,11 +24,16 @@ class database
 
 	function db_get_assoc($sql)
 	{
-		$result = '';
+		$result = array();
 
 		if ($sql != '') {
 			$query = $this->db_connect->query($sql) or die($this->db_connect->error);
-			$result = $query->fetch_assoc();
+			if ($query->num_rows > 0) {
+				$rows = $query->fetch_assoc();
+				do {
+					$result[] = $rows;
+				} while ($row = $query->fetch_assoc());
+			}
 		}
 
 		return $result;
