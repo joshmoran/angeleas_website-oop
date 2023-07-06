@@ -7,13 +7,13 @@ class address extends customer
     private $addresses = array();
     private $sql = "SELECT * FROM address";
 
-    public function __construct()
+    public function __construct($customer_id)
     {
         $sql = $this->sql . ' WHERE customer_id = ' . $customer_id;
 
-        $query = parent::db_get_row()
+        $query = parent::db_get_assoc($sql);
 
-        foreach ($object as $value) {
+        foreach ($query as $key => $value) {
             $this->addresses[] = array(
                 'id' => $value['id'],
                 '1_line' => $value['1_line'],
@@ -31,5 +31,4 @@ class address extends customer
     {
         return $this->addresses;
     }
-
 }
